@@ -13,7 +13,7 @@ export default function AboutSection() {
   ];
 
   return (
-    <section id="about" className="relative w-full py-24 px-4 sm:px-6 lg:px-8 border-t border-neutral-900 bg-black">
+    <section id="about" className="relative w-full pt-8 sm:pt-16 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 border-t border-neutral-900 bg-black">
       {/* Background dot grid pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(#262626_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
 

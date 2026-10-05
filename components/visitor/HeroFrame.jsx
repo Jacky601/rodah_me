@@ -6,7 +6,7 @@ export default function HeroFrame() {
   const [imgFingerprintError, setImgFingerprintError] = useState(false);
 
   return (
-    <section className="relative w-full pt-32 pb-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center overflow-hidden min-h-[85vh]">
+    <section className="relative w-full pt-28 sm:pt-32 pb-8 sm:pb-16 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center overflow-hidden min-h-0 sm:min-h-[75vh]">
       {/* 1. Full Section Background Image: Starts directly below navbar (top-20) and anchored to top */}
       <div className="absolute top-20 bottom-0 left-0 right-0 z-0 flex items-start justify-center pointer-events-none overflow-hidden select-none">
         <img
@@ -108,7 +108,7 @@ export default function HeroFrame() {
       </div>
 
       {/* Quote directly below the frame */}
-      <div className="relative z-10 mt-12 max-w-2xl text-center px-4">
+      <div className="relative z-10 mt-6 sm:mt-10 max-w-2xl text-center px-4">
         <blockquote className="font-space text-lg sm:text-xl md:text-2xl text-neutral-100 font-medium italic leading-relaxed drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
           « C'est ce que nous bâtissons qui change réellement nos vies »
         </blockquote>
