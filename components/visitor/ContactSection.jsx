@@ -20,18 +20,12 @@ export default function ContactSection() {
   return (
     <section id="contact" className="relative w-full py-24 px-4 sm:px-6 lg:px-8 border-t border-neutral-900 bg-neutral-950/60">
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <div className="flex items-center justify-between text-xs font-mono text-neutral-500 mb-12 border-b border-neutral-900 pb-4">
-          <span className="text-red-500 font-semibold tracking-wider">.contact_direct</span>
-          <span>CANAL CONFIDENTIEL</span>
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: Direct Info & Value Proposition */}
           <div className="lg:col-span-5 space-y-8">
             <div>
-              <div className="inline-block px-3 py-1 rounded-full bg-red-600/10 border border-red-600/30 text-red-500 font-mono text-xs tracking-wider uppercase mb-4">
-                Prise de Contact
+              <div className="inline-block px-3 py-1 rounded-full  text-red-500 font-mono text-xs tracking-wider uppercase mb-4">
+              Prise de Contact
               </div>
               <h2 className="font-space font-bold text-3xl sm:text-4xl text-white tracking-tight mb-4">
                 Un projet critique ? Bâtissons une solution résiliente.
@@ -70,7 +64,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <div className="text-xs font-mono text-neutral-500">CONFIDENTIALITÉ &amp; ENGAGEMENT</div>
-                  <div className="font-mono text-white">Accords de non-divulgation (NDA) systématiques</div>
+                  <div className="font-mono text-white">Accords de non-divulgation (NDA)</div>
                 </div>
               </div>
             </div>

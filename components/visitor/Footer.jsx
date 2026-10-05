@@ -12,8 +12,7 @@ export default function Footer() {
             Rodah<span className="text-red-600">.</span>
           </div>
           <p className="text-xs font-mono text-neutral-500 mt-1">
-            Rodolphe C. EDAH — Ingénieur Réseau, Cybersécurité, IA &amp; Big Data
-          </p>
+            Rodolphe C. EDAH — Ingénieur IA, Expert en Cybersécurité.</p>
         </div>
 
         <div className="flex items-center gap-6 text-xs font-space">
@@ -32,15 +31,8 @@ export default function Footer() {
         </div>
 
         <div className="flex items-center gap-4">
-          <Link
-            href="/"
-            className="flex items-center gap-1.5 px-3 py-1 rounded-full border border-neutral-800 bg-neutral-950 text-xs font-mono text-neutral-400 hover:text-red-400 hover:border-red-900 transition-colors"
-          >
-            <Terminal className="w-3.5 h-3.5" />
-            <span>Mode Hackeur</span>
-          </Link>
           <span className="text-xs font-mono text-neutral-600">
-            © 2026 Rodah. Tous droits réservés.
+            © 2026 LYNUS. Tous droits réservés.
           </span>
         </div>
       </div>
