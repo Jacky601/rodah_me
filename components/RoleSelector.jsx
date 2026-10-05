@@ -1,16 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function RoleSelector({ isVisible }) {
   const [activeMessage, setActiveMessage] = useState(null);
 
-  const handleClick = (role) => {
-    setActiveMessage(
-      role === "visiteur"
-        ? "> ACCÈS PORTFOLIO STANDARD EN COURS DE CONFIGURATION..."
-        : "> DÉTECTION PROTOCOLE HACKER EN COURS DE DÉVELOPPEMENT..."
-    );
+  const handleHackerClick = () => {
+    setActiveMessage("> PROTOCOLE HACKER EN COURS DE DÉVELOPPEMENT...");
     setTimeout(() => setActiveMessage(null), 3000);
   };
 
@@ -27,24 +24,20 @@ export default function RoleSelector({ isVisible }) {
 
       {/* Action Buttons */}
       <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 w-full">
-        {/* Button Visiteur */}
-        <a
-          href="#visiteur"
-          onClick={(e) => {
-            e.preventDefault();
-            handleClick("visiteur");
-          }}
+        {/* Button Visiteur -> Routes directly to /visiteur */}
+        <Link
+          href="/visiteur"
           className="btn-pixel-red font-pixel text-xs sm:text-sm tracking-wider px-8 sm:px-10 py-3.5 sm:py-4 rounded-none text-center uppercase min-w-[170px]"
         >
           ViSiTEUR
-        </a>
+        </Link>
 
         {/* Button Hackeur */}
         <a
           href="#hackeur"
           onClick={(e) => {
             e.preventDefault();
-            handleClick("hackeur");
+            handleHackerClick();
           }}
           className="btn-pixel-white font-pixel text-xs sm:text-sm tracking-wider px-8 sm:px-10 py-3.5 sm:py-4 rounded-none text-center uppercase min-w-[170px]"
         >

@@ -14,6 +14,8 @@ module.exports = {
       fontFamily: {
         pixel: ['var(--font-press-start)', 'monospace'],
         mono: ['var(--font-jetbrains)', 'monospace'],
+        display: ['var(--font-syne)', 'sans-serif'],
+        space: ['var(--font-space)', 'sans-serif'],
       },
       animation: {
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
