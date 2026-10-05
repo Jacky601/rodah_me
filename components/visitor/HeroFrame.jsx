@@ -55,7 +55,7 @@ export default function HeroFrame() {
         <div className="flex flex-col items-center justify-center text-center w-full">
           {/* Top Tag: "Ingénieur IA & CyberSec" */}
           <div className="mb-4 sm:mb-6">
-            <span className="inline-block px-4 py-1 text-xs sm:text-sm font-space text-neutral-200 bg-neutral-900/90 border border-neutral-700/80 rounded-full tracking-wide shadow-sm">
+            <span className="inline-block px-4 py-1 text-xs sm:text-sm font-space text-neutral-200  rounded-full tracking-wide shadow-sm">
               Ingénieur IA &amp; CyberSec
             </span>
           </div>

@@ -23,9 +23,7 @@ export default function AboutSection() {
           <div className="lg:col-span-7 space-y-8">
             {/* Card 1: About Me Overview */}
             <div className="p-6 sm:p-8 rounded-xl bg-neutral-950/70 border border-neutral-800/80 backdrop-blur-sm shadow-[0_0_30px_rgba(0,0,0,0.8)]">
-              <div className="inline-block px-3 py-1 rounded-full bg-red-600/10 border border-red-600/30 text-red-500 font-mono text-xs tracking-wider uppercase mb-5">
-                À Propos de Moi
-              </div>
+              
 
               <h2 className="font-space font-bold text-2xl sm:text-3xl text-white tracking-tight mb-4">
                 L'ingénierie au service de la résilience et de l'intelligence système.
