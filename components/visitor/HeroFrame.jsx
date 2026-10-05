@@ -1,31 +1,30 @@
 "use client";
 
 import { useState } from "react";
-import { CornerDownRight } from "lucide-react";
 
 export default function HeroFrame() {
   const [imgFingerprintError, setImgFingerprintError] = useState(false);
 
   return (
-    <section className="relative w-full pt-32 pb-20 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center overflow-hidden">
-      {/* Top Zénithal Spotlight from above hitting the top of the frame */}
-      <div className="absolute top-12 left-1/2 -translate-x-1/2 w-96 h-40 bg-gradient-to-b from-white/20 via-red-500/15 to-transparent blur-3xl pointer-events-none" />
-      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-48 h-2 bg-gradient-to-r from-transparent via-white/50 to-transparent blur-sm pointer-events-none" />
+    <section className="relative w-full pt-32 pb-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center overflow-hidden min-h-[85vh]">
+      {/* 1. Full Section Background Image: from bottom of Navbar to end of Hero Section */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
+        <img
+          src="/images/hero-bg.jpeg"
+          alt="Hero Background"
+          className="w-full h-full object-cover object-center opacity-30 filter contrast-125 grayscale mix-blend-screen scale-105"
+        />
+        {/* Gradients blending seamlessly into top (navbar) and bottom (about section) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,#000000_90%)]" />
+      </div>
 
-      {/* Main Selection / Bounding Frame Box */}
-      <div className="relative w-full max-w-4xl border border-dashed border-red-500/90 rounded-sm p-6 sm:p-10 md:p-14 bg-neutral-950/75 backdrop-blur-md shadow-[0_0_60px_rgba(220,38,38,0.18)] overflow-hidden">
-        {/* Background Image inside the Frame with Dark Cinematic Overlay */}
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
-          <img
-            src="/assets/images/hero-dark.jpeg"
-            alt="Hero Background"
-            className="w-full h-full object-cover object-center opacity-25 filter contrast-125 grayscale mix-blend-screen scale-105"
-          />
-          {/* Radial dark gradient mask to preserve high text contrast */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/85" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,#000000_90%)]" />
-        </div>
+      {/* Top Zénithal Spotlight hitting the top of the frame */}
+      <div className="absolute top-16 left-1/2 -translate-x-1/2 w-96 h-40 bg-gradient-to-b from-white/20 via-red-500/15 to-transparent blur-3xl pointer-events-none z-10" />
+      <div className="absolute top-24 left-1/2 -translate-x-1/2 w-48 h-2 bg-gradient-to-r from-transparent via-white/50 to-transparent blur-sm pointer-events-none z-10" />
 
+      {/* Main Selection / Bounding Frame Box (Clean & Épuré) */}
+      <div className="relative z-10 w-full max-w-4xl border border-dashed border-red-500/90 rounded-sm p-6 sm:p-10 md:p-14 bg-black/40 backdrop-blur-sm shadow-[0_0_50px_rgba(220,38,38,0.15)]">
         {/* 8 Red Transformer Selection Handles (Corners & Midpoints) */}
         {/* Top-left */}
         <span className="absolute -top-1.5 -left-1.5 w-3 h-3 bg-red-600 border border-black shadow-[0_0_8px_#dc2626] z-20" />
@@ -52,8 +51,8 @@ export default function HeroFrame() {
           </svg>
         </span>
 
-        {/* Content Inside Frame (Z-indexed above background) */}
-        <div className="relative z-10 flex flex-col items-center justify-center text-center w-full">
+        {/* Content Inside Frame */}
+        <div className="flex flex-col items-center justify-center text-center w-full">
           {/* Top Tag: "Ingénieur IA & CyberSec" */}
           <div className="mb-4 sm:mb-6">
             <span className="inline-block px-4 py-1 text-xs sm:text-sm font-space text-neutral-200 bg-neutral-900/90 border border-neutral-700/80 rounded-full tracking-wide shadow-sm">
@@ -68,7 +67,7 @@ export default function HeroFrame() {
               
               {/* The Stylized Biometric "o" */}
               <span className="relative inline-flex items-center justify-center mx-1 sm:mx-2 md:mx-4">
-                {/* Outer Glow */}
+                {/* Outer Red Glow */}
                 <span className="absolute inset-0 rounded-full bg-red-600/40 blur-2xl scale-150 animate-pulse" />
                 
                 {/* White glowing circular disc */}
@@ -81,7 +80,6 @@ export default function HeroFrame() {
                       onError={() => setImgFingerprintError(true)}
                     />
                   ) : (
-                    /* Detailed Realistic Fingerprint Vector Graphic */
                     <svg
                       viewBox="0 0 100 100"
                       fill="none"
@@ -110,43 +108,17 @@ export default function HeroFrame() {
               <span>dah</span>
             </h1>
           </div>
-
-          {/* Bottom capsule bar inside frame */}
-          <div className="w-full mt-6 sm:mt-10 flex items-center justify-between flex-wrap gap-4 pt-4 border-t border-neutral-800/80">
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-900/90 border border-neutral-800 text-xs font-mono text-neutral-300">
-                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-                <span>SECURITY CERTIFIED // CISCO &amp; CHE</span>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <span className="px-4 py-1.5 rounded-full bg-neutral-900/90 border border-neutral-800 text-xs font-mono text-neutral-400">
-                2026
-              </span>
-              <div className="w-8 h-8 rounded-full bg-neutral-900/90 border border-neutral-800 flex items-center justify-center text-neutral-300">
-                <CornerDownRight className="w-4 h-4 text-red-500" />
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 
       {/* Quote directly below the frame */}
-      <div className="mt-12 max-w-2xl text-center px-4">
+      <div className="relative z-10 mt-12 max-w-2xl text-center px-4">
         <blockquote className="font-space text-lg sm:text-xl md:text-2xl text-neutral-100 font-medium italic leading-relaxed drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
           « C'est ce que nous bâtissons qui change réellement nos vies »
         </blockquote>
         <p className="mt-3 font-mono text-xs sm:text-sm text-red-500 tracking-widest font-semibold uppercase">
-          — Signé Rodolphe EDAH
+          Rodolphe EDAH
         </p>
-      </div>
-
-      {/* Scroll indicator prompt */}
-      <div className="mt-10 flex items-center gap-2 font-mono text-xs text-neutral-500 tracking-wider">
-        <span className="text-red-500">↘</span>
-        <span>Faites défiler pour explorer le profil</span>
-        <span className="text-red-500">↙</span>
       </div>
     </section>
   );

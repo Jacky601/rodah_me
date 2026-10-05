@@ -1,1 +1,1 @@
-self.__NEXT_FONT_MANIFEST='{"pages":{},"app":{"/home/uriel_axel_houegbe/Bureau/portfolio_rodolphe/app/layout":["static/media/bb3ef058b751a6ad-s.p.woff2","static/media/db234bd00cda6a96-s.p.woff2","static/media/36966cca54120369-s.p.woff2","static/media/8a1d8947e5852e30-s.p.woff2"]},"appUsingSizeAdjust":true,"pagesUsingSizeAdjust":false}';
+self.__NEXT_FONT_MANIFEST="{\"pages\":{},\"app\":{},\"appUsingSizeAdjust\":false,\"pagesUsingSizeAdjust\":false}"
