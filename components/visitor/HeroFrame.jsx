@@ -7,24 +7,23 @@ export default function HeroFrame() {
 
   return (
     <section className="relative w-full pt-32 pb-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center overflow-hidden min-h-[85vh]">
-      {/* 1. Full Section Background Image: from bottom of Navbar to end of Hero Section */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
+      {/* 1. Full Section Background Image: Centered, Non-stretched, Clearly Visible */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none overflow-hidden select-none">
         <img
           src="/images/hero-bg.jpeg"
           alt="Hero Background"
-          className="w-full h-full object-cover object-center opacity-30 filter contrast-125 grayscale mix-blend-screen scale-105"
+          className="w-full max-w-2xl sm:max-w-3xl md:max-w-4xl h-full object-contain object-center opacity-75 filter contrast-125"
         />
-        {/* Gradients blending seamlessly into top (navbar) and bottom (about section) */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,#000000_90%)]" />
+        {/* Soft edge blend into pure black top and bottom */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black pointer-events-none" />
       </div>
 
       {/* Top Zénithal Spotlight hitting the top of the frame */}
       <div className="absolute top-16 left-1/2 -translate-x-1/2 w-96 h-40 bg-gradient-to-b from-white/20 via-red-500/15 to-transparent blur-3xl pointer-events-none z-10" />
       <div className="absolute top-24 left-1/2 -translate-x-1/2 w-48 h-2 bg-gradient-to-r from-transparent via-white/50 to-transparent blur-sm pointer-events-none z-10" />
 
-      {/* Main Selection / Bounding Frame Box (Clean & Épuré) */}
-      <div className="relative z-10 w-full max-w-4xl border border-dashed border-red-500/90 rounded-sm p-6 sm:p-10 md:p-14 bg-black/40 backdrop-blur-sm shadow-[0_0_50px_rgba(220,38,38,0.15)]">
+      {/* Main Selection / Bounding Frame Box: 100% TRANSPARENT to let the background image show through */}
+      <div className="relative z-10 w-full max-w-4xl border border-dashed border-red-500/90 rounded-sm p-6 sm:p-10 md:p-14 bg-transparent shadow-[0_0_50px_rgba(220,38,38,0.15)]">
         {/* 8 Red Transformer Selection Handles (Corners & Midpoints) */}
         {/* Top-left */}
         <span className="absolute -top-1.5 -left-1.5 w-3 h-3 bg-red-600 border border-black shadow-[0_0_8px_#dc2626] z-20" />
@@ -55,14 +54,14 @@ export default function HeroFrame() {
         <div className="flex flex-col items-center justify-center text-center w-full">
           {/* Top Tag: "Ingénieur IA & CyberSec" */}
           <div className="mb-4 sm:mb-6">
-            <span className="inline-block px-4 py-1 text-xs sm:text-sm font-space text-neutral-200  rounded-full tracking-wide shadow-sm">
+            <span className="inline-block px-4 py-1 text-xs sm:text-sm font-space text-neutral-200 rounded-full tracking-wide shadow-sm">
               Ingénieur IA &amp; CyberSec
             </span>
           </div>
 
           {/* Grand Titre Monumental "Rodah" parfaitement CENTRÉ */}
           <div className="w-full flex items-center justify-center tracking-tight select-none my-2 sm:my-6">
-            <h1 className="font-display font-black text-6xl sm:text-8xl md:text-9xl lg:text-[10.5rem] leading-none text-white flex items-center justify-center">
+            <h1 className="font-display font-black text-6xl sm:text-8xl md:text-9xl lg:text-[10.5rem] leading-none text-white flex items-center justify-center drop-shadow-[0_4px_25px_rgba(0,0,0,0.9)]">
               <span>R</span>
               
               {/* The Stylized Biometric "o" */}
