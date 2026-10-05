@@ -10,12 +10,6 @@ export default function CvSection() {
           {/* Subtle decorative glow */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-32 bg-red-600/10 blur-3xl pointer-events-none" />
 
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-800 text-red-500 font-mono text-xs uppercase tracking-wider mb-6">
-            <FileText className="w-3.5 h-3.5" />
-            <span>Synthèse Professionnelle</span>
-          </div>
-
           {/* Main Title */}
           <h2 className="font-space font-bold text-2xl sm:text-3xl md:text-4xl text-white tracking-tight mb-4">
             Mon parcours, en un document.
@@ -39,11 +33,6 @@ export default function CvSection() {
               <span>Télécharger mon CV</span>
             </a>
           </div>
-
-          {/* Subnote */}
-          <p className="mt-4 font-mono text-xs text-neutral-500">
-            Format PDF • Détaillé &amp; Prêt pour recrutement ou audit
-          </p>
         </div>
       </div>
     </section>
