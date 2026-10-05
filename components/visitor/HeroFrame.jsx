@@ -1,34 +1,48 @@
 "use client";
 
-import { ArrowDownRight, CornerDownRight } from "lucide-react";
+import { useState } from "react";
+import { CornerDownRight } from "lucide-react";
 
 export default function HeroFrame() {
+  const [imgFingerprintError, setImgFingerprintError] = useState(false);
+
   return (
     <section className="relative w-full pt-32 pb-20 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center overflow-hidden">
       {/* Top Zénithal Spotlight from above hitting the top of the frame */}
-      <div className="absolute top-12 left-1/2 -translate-x-1/2 w-96 h-40 bg-gradient-to-b from-white/15 via-red-500/10 to-transparent blur-3xl pointer-events-none" />
-      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-48 h-2 bg-gradient-to-r from-transparent via-white/40 to-transparent blur-sm pointer-events-none" />
+      <div className="absolute top-12 left-1/2 -translate-x-1/2 w-96 h-40 bg-gradient-to-b from-white/20 via-red-500/15 to-transparent blur-3xl pointer-events-none" />
+      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-48 h-2 bg-gradient-to-r from-transparent via-white/50 to-transparent blur-sm pointer-events-none" />
 
       {/* Main Selection / Bounding Frame Box */}
-      <div className="relative w-full max-w-4xl border border-dashed border-red-500/80 rounded-sm p-8 sm:p-14 md:p-16 bg-neutral-950/40 backdrop-blur-sm shadow-[0_0_50px_rgba(220,38,38,0.12)]">
+      <div className="relative w-full max-w-4xl border border-dashed border-red-500/90 rounded-sm p-6 sm:p-10 md:p-14 bg-neutral-950/75 backdrop-blur-md shadow-[0_0_60px_rgba(220,38,38,0.18)] overflow-hidden">
+        {/* Background Image inside the Frame with Dark Cinematic Overlay */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
+          <img
+            src="/assets/images/hero-dark.jpeg"
+            alt="Hero Background"
+            className="w-full h-full object-cover object-center opacity-25 filter contrast-125 grayscale mix-blend-screen scale-105"
+          />
+          {/* Radial dark gradient mask to preserve high text contrast */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/85" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,#000000_90%)]" />
+        </div>
+
         {/* 8 Red Transformer Selection Handles (Corners & Midpoints) */}
         {/* Top-left */}
-        <span className="absolute -top-1.5 -left-1.5 w-3 h-3 bg-red-600 border border-black shadow-[0_0_8px_#dc2626]" />
+        <span className="absolute -top-1.5 -left-1.5 w-3 h-3 bg-red-600 border border-black shadow-[0_0_8px_#dc2626] z-20" />
         {/* Top-center */}
-        <span className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-red-600 border border-black shadow-[0_0_8px_#dc2626]" />
+        <span className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-red-600 border border-black shadow-[0_0_8px_#dc2626] z-20" />
         {/* Top-right */}
-        <span className="absolute -top-1.5 -right-1.5 w-3 h-3 bg-red-600 border border-black shadow-[0_0_8px_#dc2626]" />
+        <span className="absolute -top-1.5 -right-1.5 w-3 h-3 bg-red-600 border border-black shadow-[0_0_8px_#dc2626] z-20" />
         {/* Middle-left */}
-        <span className="absolute top-1/2 -left-1.5 -translate-y-1/2 w-3 h-3 bg-red-600 border border-black shadow-[0_0_8px_#dc2626]" />
+        <span className="absolute top-1/2 -left-1.5 -translate-y-1/2 w-3 h-3 bg-red-600 border border-black shadow-[0_0_8px_#dc2626] z-20" />
         {/* Middle-right */}
-        <span className="absolute top-1/2 -right-1.5 -translate-y-1/2 w-3 h-3 bg-red-600 border border-black shadow-[0_0_8px_#dc2626]" />
+        <span className="absolute top-1/2 -right-1.5 -translate-y-1/2 w-3 h-3 bg-red-600 border border-black shadow-[0_0_8px_#dc2626] z-20" />
         {/* Bottom-left */}
-        <span className="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-red-600 border border-black shadow-[0_0_8px_#dc2626]" />
+        <span className="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-red-600 border border-black shadow-[0_0_8px_#dc2626] z-20" />
         {/* Bottom-center */}
-        <span className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-red-600 border border-black shadow-[0_0_8px_#dc2626]" />
+        <span className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-red-600 border border-black shadow-[0_0_8px_#dc2626] z-20" />
         {/* Bottom-right with pointer cursor arrow */}
-        <span className="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-red-600 border border-black shadow-[0_0_8px_#dc2626]">
-          {/* Neon Pointer Arrow icon pointing at bottom right handle */}
+        <span className="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-red-600 border border-black shadow-[0_0_8px_#dc2626] z-20">
           <svg
             className="absolute top-2 left-2 w-5 h-5 text-red-500 drop-shadow-[0_0_8px_rgba(220,38,38,0.8)] pointer-events-none"
             viewBox="0 0 24 24"
@@ -38,68 +52,81 @@ export default function HeroFrame() {
           </svg>
         </span>
 
-        {/* Top Tag: "Ingénieur IA & CyberSec" */}
-        <div className="mb-4 sm:mb-6">
-          <span className="inline-block px-3 py-1 text-xs sm:text-sm font-space text-neutral-300 bg-neutral-900/90 border border-neutral-800 rounded-full tracking-wide">
-            Ingénieur IA &amp; CyberSec
-          </span>
-        </div>
-
-        {/* Grand Titre Monumental "Rodah" avec le "o" stylisé comme sur la maquette */}
-        <div className="flex items-center tracking-tight select-none">
-          <h1 className="font-display font-black text-6xl sm:text-8xl md:text-9xl lg:text-[10.5rem] leading-none text-white flex items-center">
-            <span>R</span>
-            
-            {/* The Stylized Biometric "o" */}
-            <span className="relative inline-flex items-center justify-center mx-1 sm:mx-2 md:mx-3">
-              {/* Outer Glow */}
-              <span className="absolute inset-0 rounded-full bg-red-600/30 blur-xl scale-125 animate-pulse" />
-              
-              {/* White glowing circular aura */}
-              <span className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full bg-white flex items-center justify-center shadow-[0_0_35px_rgba(255,255,255,0.8),0_0_50px_rgba(220,38,38,0.5)]">
-                {/* Etched Biometric Fingerprint Graphic */}
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#8b0000"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  className="w-8 h-8 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16"
-                >
-                  <path d="M12 10a2 2 0 0 0-2 2c0 1.02-.1 2.51-.26 4" />
-                  <path d="M14 13.12c0 2.38 0 6.38-1 8.88" />
-                  <path d="M2 16h.01" />
-                  <path d="M21.8 16c.2-2 .131-5.354 0-6" />
-                  <path d="M9 6.8a6 6 0 0 1 9 5.2c0 .47 0 1.17-.02 2" />
-                  <path d="M4 10.95a5 5 0 0 1 4.41-4.9" />
-                  <path d="M6 14c0 1.5.2 3.5.5 5" />
-                  <path d="M10 19a4 4 0 0 0 .5-2.5v-4.5" />
-                  <path d="M14.5 7.5a8 8 0 0 1 4.5 7" />
-                  <path d="M18 16c0 1.5-.1 3-.5 4.5" />
-                  <path d="M7.8 20.9A4 4 0 0 0 10 18" />
-                </svg>
-              </span>
+        {/* Content Inside Frame (Z-indexed above background) */}
+        <div className="relative z-10 flex flex-col items-center justify-center text-center w-full">
+          {/* Top Tag: "Ingénieur IA & CyberSec" */}
+          <div className="mb-4 sm:mb-6">
+            <span className="inline-block px-4 py-1 text-xs sm:text-sm font-space text-neutral-200 bg-neutral-900/90 border border-neutral-700/80 rounded-full tracking-wide shadow-sm">
+              Ingénieur IA &amp; CyberSec
             </span>
-
-            <span>dah</span>
-          </h1>
-        </div>
-
-        {/* Bottom capsule bar inside frame */}
-        <div className="mt-8 sm:mt-12 flex items-center justify-between flex-wrap gap-4 pt-4 border-t border-neutral-900/60">
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-900/90 border border-neutral-800 text-xs font-mono text-neutral-300">
-              <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-              <span>SECURITY CERTIFIED // CISCO &amp; CHE</span>
-            </div>
           </div>
 
-          <div className="flex items-center gap-2">
-            <span className="px-4 py-1.5 rounded-full bg-neutral-900/90 border border-neutral-800 text-xs font-mono text-neutral-400">
-              2026
-            </span>
-            <div className="w-8 h-8 rounded-full bg-neutral-900/90 border border-neutral-800 flex items-center justify-center text-neutral-300">
-              <CornerDownRight className="w-4 h-4 text-red-500" />
+          {/* Grand Titre Monumental "Rodah" parfaitement CENTRÉ */}
+          <div className="w-full flex items-center justify-center tracking-tight select-none my-2 sm:my-6">
+            <h1 className="font-display font-black text-6xl sm:text-8xl md:text-9xl lg:text-[10.5rem] leading-none text-white flex items-center justify-center">
+              <span>R</span>
+              
+              {/* The Stylized Biometric "o" */}
+              <span className="relative inline-flex items-center justify-center mx-1 sm:mx-2 md:mx-4">
+                {/* Outer Glow */}
+                <span className="absolute inset-0 rounded-full bg-red-600/40 blur-2xl scale-150 animate-pulse" />
+                
+                {/* White glowing circular disc */}
+                <span className="relative w-14 h-14 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full bg-white flex items-center justify-center shadow-[0_0_40px_rgba(255,255,255,0.9),0_0_60px_rgba(220,38,38,0.6)] overflow-hidden p-2 sm:p-3">
+                  {!imgFingerprintError ? (
+                    <img
+                      src="/images/fingerprint.png"
+                      alt="Biometric Fingerprint"
+                      className="w-full h-full object-contain filter contrast-125"
+                      onError={() => setImgFingerprintError(true)}
+                    />
+                  ) : (
+                    /* Detailed Realistic Fingerprint Vector Graphic */
+                    <svg
+                      viewBox="0 0 100 100"
+                      fill="none"
+                      stroke="#111111"
+                      strokeWidth="2.8"
+                      strokeLinecap="round"
+                      className="w-full h-full"
+                    >
+                      <path d="M50 48 A 6 8 0 0 1 50 62 A 6 8 0 0 1 48 50" />
+                      <path d="M44 42 A 12 14 0 0 1 58 54 C 58 64 54 70 48 76" />
+                      <path d="M38 38 A 18 20 0 0 1 66 50 C 66 66 60 76 52 82" />
+                      <path d="M32 35 A 24 26 0 0 1 72 46 C 72 68 64 82 54 88" />
+                      <path d="M26 36 A 30 32 0 0 1 78 46 C 78 70 70 86 58 92" />
+                      <path d="M22 42 A 36 38 0 0 1 84 50 C 84 72 76 90 62 96" />
+                      <path d="M20 54 C 20 44 24 36 32 30" />
+                      <path d="M28 66 C 26 58 26 48 34 38" />
+                      <path d="M36 76 C 34 68 34 58 40 48" />
+                      <path d="M42 84 C 40 78 40 70 46 62" />
+                      <path d="M52 30 A 24 24 0 0 1 66 38" />
+                      <path d="M54 24 A 30 30 0 0 1 74 36" />
+                    </svg>
+                  )}
+                </span>
+              </span>
+
+              <span>dah</span>
+            </h1>
+          </div>
+
+          {/* Bottom capsule bar inside frame */}
+          <div className="w-full mt-6 sm:mt-10 flex items-center justify-between flex-wrap gap-4 pt-4 border-t border-neutral-800/80">
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-neutral-900/90 border border-neutral-800 text-xs font-mono text-neutral-300">
+                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                <span>SECURITY CERTIFIED // CISCO &amp; CHE</span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="px-4 py-1.5 rounded-full bg-neutral-900/90 border border-neutral-800 text-xs font-mono text-neutral-400">
+                2026
+              </span>
+              <div className="w-8 h-8 rounded-full bg-neutral-900/90 border border-neutral-800 flex items-center justify-center text-neutral-300">
+                <CornerDownRight className="w-4 h-4 text-red-500" />
+              </div>
             </div>
           </div>
         </div>

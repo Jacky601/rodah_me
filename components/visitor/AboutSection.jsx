@@ -18,12 +18,6 @@ export default function AboutSection() {
       <div className="absolute inset-0 bg-[radial-gradient(#262626_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto">
-        {/* Section Header Tag */}
-        <div className="flex items-center justify-between text-xs font-mono text-neutral-500 mb-12 border-b border-neutral-900 pb-4">
-          <span className="text-red-500 font-semibold tracking-wider">.profil_expert</span>
-          <span>RODOLPHE C. EDAH // 2026</span>
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
           {/* Left Column: Structured Content */}
           <div className="lg:col-span-7 space-y-8">
