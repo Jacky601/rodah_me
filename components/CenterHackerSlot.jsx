@@ -20,7 +20,7 @@ export default function CenterHackerSlot({ isVisible, imageSrc }) {
       </div>
 
       {/* Central Hacker Image Container */}
-      <div className="relative w-56 h-64 sm:w-64 sm:h-72 md:w-80 md:h-96 flex items-center justify-center overflow-hidden rounded-lg">
+      <div className="relative w-72 h-80 sm:w-96 sm:h-[420px] md:w-[440px] md:h-[500px] flex items-center justify-center overflow-hidden rounded-lg">
         {/* Soft radial vignette mask so the edges blend completely into pitch black */}
         <div className="absolute inset-0 z-20 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,transparent_40%,black_95%)] bg-black" />
 
@@ -36,7 +36,7 @@ export default function CenterHackerSlot({ isVisible, imageSrc }) {
         ) : (
           /* High-craft Placeholder while awaiting the final user image */
           <div className="relative w-full h-full flex flex-col items-center justify-center border border-neutral-800/60 bg-neutral-950/40 rounded-lg p-6 text-center shadow-[inset_0_0_40px_rgba(0,0,0,0.9)]">
-            <div className="relative w-28 h-28 sm:w-36 sm:h-36 mb-3 opacity-80">
+            <div className="relative w-36 h-36 sm:w-48 sm:h-48 md:w-56 md:h-56 mb-3 opacity-85">
               {/* Stylized Anonymous / Cyber Mask SVG silhouette */}
               <svg viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-[0_0_15px_rgba(255,255,255,0.25)]">
                 {/* Hood */}
