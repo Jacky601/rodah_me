@@ -1,41 +1,56 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 export default function TypewriterTitle({ onComplete }) {
   const fullText = "BiENVENUE DANS MA TANNiÈRE...";
   const [displayedText, setDisplayedText] = useState("");
   const [isDone, setIsDone] = useState(false);
+  const onCompleteRef = useRef(onComplete);
+
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
 
   useEffect(() => {
     let index = 0;
-    let timeoutId;
+    let timeoutId = null;
+    let isCancelled = false;
 
     const typeNextChar = () => {
+      if (isCancelled) return;
+
       if (index < fullText.length) {
         setDisplayedText(fullText.slice(0, index + 1));
         index++;
 
         // Natural typing rhythm variation (dots take longer)
         const char = fullText[index - 1];
-        let delay = 65 + Math.random() * 45;
-        if (char === " ") delay = 120;
-        if (char === ".") delay = 180;
+        let delay = 60 + Math.random() * 40;
+        if (char === " ") delay = 110;
+        if (char === ".") delay = 160;
 
         timeoutId = setTimeout(typeNextChar, delay);
       } else {
         setIsDone(true);
-        if (onComplete) {
-          setTimeout(onComplete, 400);
+        if (onCompleteRef.current) {
+          setTimeout(() => {
+            if (!isCancelled && onCompleteRef.current) {
+              onCompleteRef.current();
+            }
+          }, 350);
         }
       }
     };
 
     // Small initial delay before typing starts
-    timeoutId = setTimeout(typeNextChar, 500);
+    timeoutId = setTimeout(typeNextChar, 400);
 
-    return () => clearTimeout(timeoutId);
-  }, [onComplete]);
+    return () => {
+      isCancelled = true;
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, []); // Run strictly once on mount!
 
   return (
     <div className="relative z-10 text-center px-4 max-w-4xl mx-auto select-none">
