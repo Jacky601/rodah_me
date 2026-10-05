@@ -7,20 +7,17 @@ export default function HeroFrame() {
 
   return (
     <section className="relative w-full pt-32 pb-24 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center overflow-hidden min-h-[85vh]">
-      {/* 1. Full Section Background Image: Centered, Non-stretched, Clearly Visible */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none overflow-hidden select-none">
+      {/* 1. Full Section Background Image: Starts directly below navbar (top-20) and anchored to top */}
+      <div className="absolute top-20 bottom-0 left-0 right-0 z-0 flex items-start justify-center pointer-events-none overflow-hidden select-none">
         <img
           src="/images/hero-bg.jpeg"
           alt="Hero Background"
-          className="w-full max-w-2xl sm:max-w-3xl md:max-w-4xl h-full object-contain object-center opacity-75 filter contrast-125"
+          className="w-full max-w-2xl sm:max-w-3xl md:max-w-4xl h-full object-contain object-top opacity-75 filter contrast-125"
         />
-        {/* Soft edge blend into pure black top and bottom */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black pointer-events-none" />
       </div>
 
       {/* Top Zénithal Spotlight hitting the top of the frame */}
       <div className="absolute top-16 left-1/2 -translate-x-1/2 w-96 h-40 bg-gradient-to-b from-white/20 via-red-500/15 to-transparent blur-3xl pointer-events-none z-10" />
-      <div className="absolute top-24 left-1/2 -translate-x-1/2 w-48 h-2 bg-gradient-to-r from-transparent via-white/50 to-transparent blur-sm pointer-events-none z-10" />
 
       {/* Main Selection / Bounding Frame Box: 100% TRANSPARENT to let the background image show through */}
       <div className="relative z-10 w-full max-w-4xl border border-dashed border-red-500/90 rounded-sm p-6 sm:p-10 md:p-14 bg-transparent shadow-[0_0_50px_rgba(220,38,38,0.15)]">
