@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Couleurs en triplets RVB pour permettre bg-primary/20, etc. */
+@layer base {
+  :root {
+    --bg: 244 244 244;
+    --fg: 10 10 10;
+    --primary: 214 16 16;
+    --muted: 230 230 230;
+    --border: 10 10 10;
+    --glass: 255 255 255;
+    --glass-alpha: 0.6;
+    --glow: 214 16 16;
+    color-scheme: light;
+  }
+
+  .dark {
+    --bg: 7 7 7;
+    --fg: 245 245 245;
+    --primary: 255 42 42;
+    --muted: 17 17 17;
+    --border: 255 255 255;
+    --glass: 22 22 22;
+    --glass-alpha: 0.55;
+    --glow: 255 42 42;
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    overflow-x: hidden;
+    font-family: Manrope, sans-serif;
+  }
+}
+
+@layer components {
+  /* Verre dépoli : fond translucide, flou, filet clair et reflet en haut */
+  .glass {
+    background: linear-gradient(180deg, rgb(var(--glass) / calc(var(--glass-alpha) + 0.1)), rgb(var(--glass) / var(--glass-alpha)));
+    border: 1px solid rgb(var(--border) / 0.09);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 24px 60px -24px rgb(0 0 0 / 0.55);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+  }
+
+  .glass-hover {
+    transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+  }
+  .glass-hover:hover {
+    border-color: rgb(var(--primary) / 0.35);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.08), 0 30px 80px -30px rgb(var(--glow) / 0.45);
+  }
+
+  .eyebrow {
+    @apply font-label text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-primary;
+  }
+
+  .h-section {
+    @apply font-display text-4xl font-extrabold tracking-[-0.04em] md:text-6xl;
+  }
+
+  .pill {
+    @apply inline-flex items-center gap-3 rounded-full font-label text-[0.7rem] font-semibold uppercase tracking-[0.22em] transition-all duration-300;
+  }
+  .pill-primary {
+    @apply pill bg-primary py-2 pl-7 pr-2 text-white hover:shadow-[0_0_40px_-6px_rgb(var(--glow)/0.7)];
+  }
+  .pill-ghost {
+    @apply pill glass px-7 py-4 text-foreground hover:text-primary;
+  }
+  .pill-icon {
+    @apply flex h-9 w-9 items-center justify-center rounded-full bg-black/20;
+  }
+
+  .tag {
+    @apply rounded-full border border-border/15 bg-foreground/[0.03] px-4 py-2 font-label text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-foreground/85;
+  }
+}
+
+@keyframes hero-fade-in {
+  from { opacity: 0; transform: translateY(1rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@layer utilities {
+  .hero-fade {
+    @apply opacity-0 animate-[hero-fade-in_0.9s_cubic-bezier(.22,1,.36,1)_forwards];
+  }
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: rgb(var(--bg)); }
+::-webkit-scrollbar-thumb { background: rgb(var(--border) / 0.15); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: rgb(var(--primary)); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-fade { animation: none; opacity: 1; }
+}
